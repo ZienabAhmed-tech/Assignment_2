@@ -47,14 +47,14 @@ public class Atm {
                  deposit_amount=input.nextDouble();
                 //  System.out.println(deposit_amount);
                 balance = Deposit_amount(deposit_amount, balance);
-                System.out.println( "your balance now is : " +balance );
+                System.out.println( "Your Balance  is : " +balance );
               }
               else if(choose==3){
-                 System.out.println("Enter The Withdraw_amount : ");
+                 System.out.println("Enter The Withdraw Amount : ");
                  withdraw_amount=input.nextDouble();
-                //  System.out.println(deposit_amount);
+    
                 balance = Withdraw_amount(withdraw_amount, balance);
-                System.out.println( "your balance now is : " +balance );
+                System.out.println( "Your Balance is : " +balance );
               }
               else if(choose==4){
                Show_Account_Status(balance);
@@ -73,7 +73,8 @@ public class Atm {
           }
 
         
-        // جزء ال main
+       
+          
         }
        
         
@@ -93,20 +94,25 @@ public class Atm {
             }   
              
        
-        // بعد ال main جزء ال methods
+        
+            
         public static void Balance(double balance){
            System.out.println("your blance is: " + balance);
         }
         // method for Withdraw
         public static  double  Withdraw_amount (double withdraw_amount ,double balance ){
-           
-            if (withdraw_amount>0 &&withdraw_amount<=balance ) {
-                
-               return balance-withdraw_amount; 
+            if (withdraw_amount<=0) {
+              System.out.println("Invalid amount");
+                return balance;
+            }
+            else if (withdraw_amount>balance ) {
+              System.out.println("Insufficient balance");
+               return balance;
+               
              }
              else{
-               System.out.println("Insufficient balance");
-               return balance;
+              return balance-withdraw_amount; 
+               
              }
             }
         // method for Show Account Status 
